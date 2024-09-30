@@ -136,12 +136,12 @@ Customize **XynsTool** to fit your development needs:
     - The `.env` file is created automatically. Update it with your actual API keys for full functionality.
     - **Example**:
         
-        HUGGING_FACE_API_KEY=your_hugging_face_api_key_here
-        CLAUDE_API_KEY=your_claude_api_key_here
-        OPENAI_API_KEY=your_openai_api_key_here
-        GITHUB_API_TOKEN=your_github_api_token_here
-        AWS_ACCESS_KEY_ID=your_aws_access_key_id_here
-        AWS_SECRET_ACCESS_KEY=your_aws_secret_access_key_here
+            HUGGING_FACE_API_KEY=your_hugging_face_api_key_here
+            CLAUDE_API_KEY=your_claude_api_key_here
+            OPENAI_API_KEY=your_openai_api_key_here
+            GITHUB_API_TOKEN=your_github_api_token_here
+            AWS_ACCESS_KEY_ID=your_aws_access_key_id_here
+            AWS_SECRET_ACCESS_KEY=your_aws_secret_access_key_here
 
 2. **Overwrite Protection** 🛡️:
     - Managed via `./mr_fixit/config.cfg`.
@@ -160,23 +160,44 @@ Keep **XynsTool** up-to-date with the latest features and security patches:
     - Verifies the signature using GPG to ensure authenticity.
     - Installs the update upon successful verification.
 
-**Note**: Ensure your GPG key is correctly set up and replace the placeholder fingerprint with your actual GPG key fingerprint.
+**Note**: Ensure your GPG key is correctly set up and replace the placeholder fingerprint with the developer's actual GPG key fingerprint.
 
 ## 🛡️ Security Considerations
 
 **XynsTool** prioritizes security to protect your projects:
 
-- **GPG Signature Verification** 🔒:
-    - Ensures that updates are authentic and have not been tampered with.
-    - **Setup**:
-        - Replace `A2204479CEDA92DA4058027780DDD12DCD9F7D6B` with your actual GPG key fingerprint in the script.
+### **GPG Signature Verification** 🔒
 
-- **Secure Update URLs** 🔗:
-    - All update downloads are performed over HTTPS to prevent man-in-the-middle attacks.
+To ensure that updates are authentic and have not been tampered with, **XynsTool** uses GPG signatures.
 
-- **Permissions Management** 🔑:
-    - The script requires appropriate permissions to modify `/usr/local/bin/`.
-    - **Recommendation**: Run the script with a user that has `sudo` privileges.
+- **Purpose**:
+  - Verifies the integrity and authenticity of the tool's updates.
+
+- **Setup**:
+  1. **Import the GPG Key**:
+      ```bash
+      gpg --import https://github.com/arcmoonstudios/XynsRustyTool/raw/main/gpgkey.asc
+      ```
+  
+  2. **Verify the GPG Key Fingerprint**:
+      Ensure the fingerprint matches the one provided below to confirm authenticity.
+      ```bash
+      gpg --fingerprint A2204479CEDA92DA4058027780DDD12DCD9F7D6B
+      ```
+      - **Expected Fingerprint**:
+        ```
+        A220 4479 CEDA 92DA 4058 0277 80DD D12D CD9F 7D6B
+        ```
+
+**Important**: The fingerprint `A2204479CEDA92DA4058027780DDD12DCD9F7D6B` corresponds to the developer's **public GPG key**. This fingerprint is intended to be shared publicly and does **not** expose any information about the private key.
+
+### **Why This Is Safe and Effective**
+
+- **Transparency**: By providing clear instructions on how to verify the GPG fingerprint, users can trust the authenticity of your tool without needing to modify any scripts themselves.
+  
+- **Security**: Sharing the **public** fingerprint does not compromise the **private** key, ensuring your updates remain secure.
+
+- **Integrity**: Users can be confident that the updates they receive are genuinely from the developer and have not been tampered with.
 
 ## 🤝 Contributing
 
@@ -208,7 +229,10 @@ We welcome contributions from the community! Follow these steps to contribute to
 7. **Create a Pull Request** 📨:
     - Navigate to your fork on GitHub and click "Compare & pull request".
 
-**Please ensure your contributions adhere to our [Code of Conduct](https://github.com/arcmoonstudios/XynsRustyTool/blob/main/CODE_OF_CONDUCT.md).**
+## 🛡️ Code of Conduct
+
+We are committed to providing a harassment-free experience for everyone, regardless of gender, sexual orientation, disability, ethnicity, religion, or any other protected characteristic. Please read our [Code of Conduct](./CODE_OF_CONDUCT.md) to learn more about our standards and expectations.
+
 
 ## 📄 License
 
@@ -218,7 +242,7 @@ Distributed under the [MIT License](https://opensource.org/licenses/MIT). See `L
 
 Have questions or need support? Reach out to us:
 
-- **Email** 📧: support@arcmoonstudios.com
+- **Email** 📧: LordXyn@proton.me
 - **GitHub Issues** 🐛: [Open an Issue](https://github.com/arcmoonstudios/XynsRustyTool/issues)
 
 ---
